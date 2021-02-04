@@ -136,3 +136,5 @@
 [2021-02-04T10:05:09+08:00][sql] SELECT * FROM `demo_order` WHERE  `id` = 206 LIMIT 1 [ RunTime:0.003231s ]
 [2021-02-04T10:05:09+08:00][sql] CONNECT:[ UseTime:0.002962s ] mysql:host=127.0.0.1;port=3306;dbname=paydemo;charset=utf8
 [2021-02-04T10:05:09+08:00][sql] SELECT * FROM `demo_order` WHERE  `order_no` = 'DEMO1612307578341FED78P1A' LIMIT 1 [ RunTime:0.002921s ]
+[2021-02-04T12:15:39+08:00][error] [10501]SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client
+[2021-02-04T12:15:47+08:00][error] [2054]SQLSTATE[HY000] [2054] The server requested authentication method unknown to the client

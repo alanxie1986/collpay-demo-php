@@ -25,9 +25,9 @@ return [
             // 数据库名
             'database'        => env('database.database', 'paydemo'),
             // 用户名
-            'username'        => env('database.username', 'root'),
+            'username'        => env('database.username', 'demo'),
             // 密码
-            'password'        => env('database.password', 'p'),
+            'password'        => env('database.password', 'Demo@123'),
             // 端口
             'hostport'        => env('database.hostport', '3306'),
             // 数据库连接参数
