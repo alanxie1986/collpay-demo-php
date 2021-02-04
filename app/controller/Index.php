@@ -20,11 +20,11 @@ class Index extends BaseController
     private const key = '08cb49637c46458d9a3e538b81fea8fa';
 
     //网页方式支付成功后回跳地址
-    private const returnUrl = 'https://demojava.newpay24.com/paySuccess';
+    private const returnUrl = 'https://demophp.newpay24.com/paySuccess';
   //  private const returnUrl = 'http://192.168.100.156:9880/paySuccess';
 
     //异步通知支付结果地址(支付成功后newpay24平台服务器会通知这个地址)
-    private const backendUrl = 'https://demojava.newpay24.com/asynCallback';
+    private const backendUrl = 'https://demophp.newpay24.com/asynCallback';
 //    private const backendUrl = 'http://192.168.100.156:9880/asynCallback';
 
     //newpay24平台 代收下单接口接口地址
