@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    {include file="../view/index/head_import.html" /}
+</head>
+
+<body  >
+
+
+{if $resultCode=='SUCCESS'}
+<section>
+    <div class="container-fluid">
+        {$payData|raw}
+    </div>
+</section>
+{else /}
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="text-center text"> 发起支付失败,请后退重新再试 </p>
+                <p class="text-center text">{$resultMsg}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{/if}
+
+
+<footer>
+
+</footer>
+
+</body>
+
+
+</html>

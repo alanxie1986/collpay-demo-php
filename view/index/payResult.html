@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    {include file="../view/index/head_import.html" /}
+</head>
+
+
+<body>
+<header>
+
+</header>
+
+<section>
+    {if $order }
+    <div class="container-fluid text-center">
+        <div class="loading_wrap">
+            <div ng-app="ionicApp" id="spinnerDiv">
+                <p>
+                    <!--居中显示-->
+                    <ion-spinner icon="ios" style="stroke:#ea4747;fill:#de2e2ecc;"></ion-spinner>
+                    <!--bubbles加载动画的样式-->
+                </p>
+                <marquee class="text center-block" behavior="alternate" direction="right" scrollamount="3">等待确认支付结果</marquee>
+            </div>
+        </div>
+
+        <div class="success">
+            <img class="img-responsive center-block" src="/static/img/icon/successful.png" />
+            <h2>支付成功</h2>
+            <p class="text">您已支付了&nbsp;<span >￥{$order.price/100}</span>&nbsp;
+                <a  href="detail?orderNo={$order.orderNo}|">查看订单</a>
+            </p>
+        </div>
+
+        <div class="fail">
+            <img class="img-responsive center-block" src="/static/img/icon/fail.png" />
+            <h2>支付失败</h2>
+            <p class="text">您未能成功支付
+                <a href="/">重新支付</a>
+            </p>
+        </div>
+        <input type="hidden" id="status" value="{$order.status}" />
+        <input type="hidden" id="orderId" value="{$order.id}" />
+    </div>
+
+    {else /}
+
+    {/if}
+</section>
+
+<footer>
+
+</footer>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var status = $('#status').val();
+        var orderId = $('#orderId').val();
+        showStatus(status);
+        setInterval(function(){
+            if(status=='PENDING'){
+                $.post({
+                    type:'post',
+                    data:{orderId:orderId},
+                    url:'ajaxStatus',
+                    success:function (val) {
+                        status = val;
+                        showStatus(status);
+                    }
+                })
+            }
+        }, 1000);
+    });
+
+    function showStatus(stausVal) {
+        $('.loading_wrap').css('display', 'none');
+        $('.success').css('display', 'none');
+        $('.fail').css('display', 'none');
+        if(stausVal=='COMPLETE'){
+            $('.success').css('display', 'block');
+        }else if(stausVal=='FAIL'){
+            $('.fail').css('display', 'block');
+        }else {
+            $('.loading_wrap').css('display', 'block');
+        }
+    }
+
+</script>
+</body>
+
+</html>

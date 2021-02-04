@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    {include file="../view/index/head_import.html" /}
+</head>
+
+<body>
+<header>
+
+</header>
+
+<form action="payment" method="post">
+    <section class="bg-gray">
+        <div class="container-fluid bg-white">
+            <a href="history"> <img class="img-responsive" src="/static/img/icon/shop.png" title="查看支付记录" />    </a>
+            <div class="bg-gray wrap_money">
+                <span>金额(￥)</span>
+                <div class="row">
+                    <div class="col-xs-12 hidden-md hidden-lg"><input type="text" name="price"  value="1.0" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="interval bg-gray"></div>
+        <div class="container-fluid bg-white">
+            <div class="wrap_payment choose">
+                <label class="radio">支付宝H5<input type="radio" value="1004" name="payType" checked><i></i></label>
+                <label class="radio">支付宝二维码<input type="radio" value="1003" name="payType" ><i></i></label>
+                <label class="radio">支付宝个人码<input type="radio" value="1008" name="payType"><i></i></label>
+                <label class="radio">微信H5<input type="radio" value="1002" name="payType"><i></i></label>
+                <label class="radio">微信二维码<input type="radio" value="1001" name="payType"><i></i></label>
+                <label class="radio">微信个人码<input type="radio" value="1007" name="payType"><i></i></label>
+            </div>
+        </div>
+        <div class="interval bg-gray"></div>
+        <div class="container-fluid bg-white">
+            <div class="wrap_remarks">
+                <span>备注：</span>
+                <input type="text" id="" placeholder="请添加备注信息" />
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="wrap_button">
+                <input type="submit" value="确认支付" />
+            </div>
+        </div>
+    </section>
+</form>
+
+<footer>
+
+</footer>
+
+</body>
+
+</html>
