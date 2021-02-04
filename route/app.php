@@ -19,3 +19,4 @@ Route::get('qrCode', 'index/qrCode');
 Route::any('asynCallback','index/asynCallback');
 Route::any('paySuccess','index/paySuccess');
 Route::any('ajaxStatus','index/ajaxStatus');
+Route::any('queryNewpay','index/queryNewpay');

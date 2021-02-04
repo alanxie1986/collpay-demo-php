@@ -40,6 +40,15 @@
                 <a href="/">重新支付</a>
             </p>
         </div>
+
+        <div class="overtime">
+            <img class="img-responsive center-block" src="/static/img/icon/fail.png" />
+            <h2>等待超时</h2>
+            <p class="text">
+                <a href="/queryNewpay?orderId={$order.id}">主动查询NEWPAY24平台订单状态</a>
+            </p>
+        </div>
+
         <input type="hidden" id="status" value="{$order.status}" />
         <input type="hidden" id="orderId" value="{$order.id}" />
     </div>
@@ -54,7 +63,8 @@
 </footer>
 
 <script type="text/javascript">
-
+    var wait = 0;
+    var showOverTime = false;
     $(document).ready(function () {
         var status = $('#status').val();
         var orderId = $('#orderId').val();
@@ -69,8 +79,10 @@
                         status = val;
                         showStatus(status);
                     }
-                })
+                });
+
             }
+
         }, 1000);
     });
 
@@ -78,6 +90,20 @@
         $('.loading_wrap').css('display', 'none');
         $('.success').css('display', 'none');
         $('.fail').css('display', 'none');
+
+
+
+        wait = wait + 1000;
+        console.log(wait + showOverTime);
+        if(wait > 5000 ){
+            $('.overtime').show();
+            showOverTime = true;
+            console.log('over time show');
+        }else {
+            $('.overtime').hide();
+            console.log('over time hide');
+        }
+
         if(stausVal=='COMPLETE'){
             $('.success').css('display', 'block');
         }else if(stausVal=='FAIL'){
